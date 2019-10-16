@@ -1,0 +1,17 @@
+digraph G {
+node [shape=box];
+"CHASSIS_SUB" [label="CHASSIS_SUB"];
+"WHEEL_SUB" [label="WHEEL_SUB"];
+"WHEEL_SUB-1" [label="WHEEL_SUB-1"];
+"WHEEL_SUB-2" [label="WHEEL_SUB-2"];
+"WHEEL_SUB-3" [label="WHEEL_SUB-3"];
+node [shape=ellipse, color=blue, fontcolor=blue];
+"CHASSIS_SUB" -> "CHASSIS_SUB--WHEEL_SUB" [label="xyz: 10.9855 -3.175 0.635 \nrpy: -3.14159 -0.773677 0"]
+"CHASSIS_SUB--WHEEL_SUB" -> "WHEEL_SUB"
+"CHASSIS_SUB" -> "CHASSIS_SUB--WHEEL_SUB-1" [label="xyz: 1.4605 3.175 0.635 \nrpy: 0 0.731482 -3.14159"]
+"CHASSIS_SUB--WHEEL_SUB-1" -> "WHEEL_SUB-1"
+"CHASSIS_SUB" -> "CHASSIS_SUB--WHEEL_SUB-2" [label="xyz: 10.9855 -3.175 0.635 \nrpy: 0 0.157649 0"]
+"CHASSIS_SUB--WHEEL_SUB-2" -> "WHEEL_SUB-2"
+"CHASSIS_SUB" -> "CHASSIS_SUB--WHEEL_SUB-3" [label="xyz: 1.4605 3.175 0.635 \nrpy: 0 -1.30227 0"]
+"CHASSIS_SUB--WHEEL_SUB-3" -> "WHEEL_SUB-3"
+}

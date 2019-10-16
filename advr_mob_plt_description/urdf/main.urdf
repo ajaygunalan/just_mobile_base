@@ -1,0 +1,144 @@
+<robot name="MAIN">
+  <link name="CHASSIS_SUB">
+    <inertial>
+      <origin xyz="6.223 0 0.635" rpy="0 0 0"/>
+      <mass value="4252430.0"/>
+      <inertia ixx="14860600.0" ixy="0.0" ixz="0.0" iyy="129173000.0" iyz="0.0" izz="142890000.0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://advr_mob_plt_description/urdf/meshes/chassis_sub_asm.stl"/>
+      </geometry>
+      <material name="green">
+        <color rgba="0 1 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://advr_mob_plt_description/urdf/meshes/chassis_sub_asm.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="WHEEL_SUB-2">
+    <inertial>
+      <origin xyz="-0.00404886860109 8.25423 -0.00255636148678" rpy="0 0 0"/>
+      <mass value="274974.0"/>
+      <inertia ixx="211670.0" ixy="71.8004" ixz="630.96" iyy="349311.0" iyz="45.2175" izz="211702.0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 7.62 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://advr_mob_plt_description/urdf/meshes/wheel_sub_asm.stl"/>
+      </geometry>
+      <material name="black">
+        <color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 7.62 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://advr_mob_plt_description/urdf/meshes/wheel_sub_asm.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="CHASSIS_SUB--WHEEL_SUB-2" type="continuous">
+    <origin xyz="10.9855 -3.175 0.635" rpy="0 0.157649211716 0"/>
+    <axis xyz="0.0 1.0 0.0"/>
+    <parent link="CHASSIS_SUB"/>
+    <child link="WHEEL_SUB-2"/>
+    <dynamics damping="0.1"/>
+  </joint>
+  <link name="WHEEL_SUB-1">
+    <inertial>
+      <origin xyz="-0.00406105508783 8.25423 -0.00255672281907" rpy="0 0 0"/>
+      <mass value="274974.0"/>
+      <inertia ixx="211670.0" ixy="71.8004" ixz="630.96" iyy="349311.0" iyz="45.2175" izz="211702.0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 7.62 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://advr_mob_plt_description/urdf/meshes/wheel_sub_asm.stl"/>
+      </geometry>
+      <material name="red">
+        <color rgba="1 0 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 7.62 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://advr_mob_plt_description/urdf/meshes/wheel_sub_asm.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="CHASSIS_SUB--WHEEL_SUB-1" type="continuous">
+    <origin xyz="1.4605 3.175 0.635" rpy="0 0.731481857872 3.14159265359"/>
+    <axis xyz="0.0 1.0 0.0"/>
+    <parent link="CHASSIS_SUB"/>
+    <child link="WHEEL_SUB-1"/>
+    <dynamics damping="0.1"/>
+  </joint>
+  <link name="WHEEL_SUB-3">
+    <inertial>
+      <origin xyz="-0.00406250026746 1.90423 -0.00255957175654" rpy="0 0 0"/>
+      <mass value="274974.0"/>
+      <inertia ixx="211670.0" ixy="71.8004" ixz="630.96" iyy="349311.0" iyz="45.2175" izz="211702.0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 1.27 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://advr_mob_plt_description/urdf/meshes/wheel_sub_asm.stl"/>
+      </geometry>
+      <material name="blue">
+        <color rgba="0 0 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 1.27 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://advr_mob_plt_description/urdf/meshes/wheel_sub_asm.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="CHASSIS_SUB--WHEEL_SUB-3" type="continuous">
+    <origin xyz="1.4605 3.175 0.635" rpy="0 -1.30226592388 0"/>
+    <axis xyz="0.0 -1.0 0.0"/>
+    <parent link="CHASSIS_SUB"/>
+    <child link="WHEEL_SUB-3"/>
+    <dynamics damping="0.1"/>
+  </joint>
+  <link name="WHEEL_SUB">
+    <inertial>
+      <origin xyz="-0.00406718663107 1.90423 -0.00256243515197" rpy="0 0 0"/>
+      <mass value="274974.0"/>
+      <inertia ixx="211670.0" ixy="71.8004" ixz="630.96" iyy="349311.0" iyz="45.2175" izz="211702.0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 1.27 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://advr_mob_plt_description/urdf/meshes/wheel_sub_asm.stl"/>
+      </geometry>
+      <material name="yellow">
+        <color rgba="1 1 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 1.27 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://advr_mob_plt_description/urdf/meshes/wheel_sub_asm.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="CHASSIS_SUB--WHEEL_SUB" type="continuous">
+    <origin xyz="10.9855 -3.175 0.635" rpy="3.14159265359 -0.773676769918 0"/>
+    <axis xyz="0.0 -1.0 0.0"/>
+    <parent link="CHASSIS_SUB"/>
+    <child link="WHEEL_SUB"/>
+    <dynamics damping="0.1"/>
+  </joint>
+  <gazebo>
+    <pose>0.0 0.0 0.0 0.0 0.0 0.0</pose>
+  </gazebo>
+</robot>
+
