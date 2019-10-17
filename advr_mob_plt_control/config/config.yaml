@@ -1,0 +1,27 @@
+advr_mob_plt:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50  
+  
+
+  # Effort Controllers ---------------------------------------
+  wheel_3_controller:
+    type: effort_controllers/JointEffortController
+    joint: CHASSIS_SUB_WHEEL_SUB_3
+    pid: {p: 100.0, i: 0.1, d: 10.0}
+
+  wheel_2_controller:
+    type: effort_controllers/JointEffortController
+    joint: CHASSIS_SUB_WHEEL_SUB_2
+    pid: {p: 100.0, i: 0.1, d: 10.0}
+
+  wheel_1_controller:
+    type: effort_controllers/JointEffortController
+    joint: CHASSIS_SUB_WHEEL_SUB_1
+    pid: {p: 100.0, i: 0.1, d: 10.0}
+
+  wheel_controller:
+    type: effort_controllers/JointEffortController
+    joint: CHASSIS_SUB_WHEEL_SUB
+    pid: {p: 100.0, i: 0.1, d: 10.0}

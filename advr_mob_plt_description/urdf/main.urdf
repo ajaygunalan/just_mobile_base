@@ -1,5 +1,13 @@
 <robot name="MAIN">
-  <link name="CHASSIS_SUB">
+
+<link name="footprint" />
+
+<joint name="base_joint" type="fixed">
+  <parent link="footprint"/>
+  <child link="CHASSIS_SUB"/>
+</joint>
+
+<link name="CHASSIS_SUB">
     <inertial>
       <origin xyz="6.223 0 0.635" rpy="0 0 0"/>
       <mass value="4252430.0"/>
@@ -43,7 +51,7 @@
       </geometry>
     </collision>
   </link>
-  <joint name="CHASSIS_SUB--WHEEL_SUB-2" type="continuous">
+  <joint name="CHASSIS_SUB_WHEEL_SUB_2" type="continuous">
     <origin xyz="10.9855 -3.175 0.635" rpy="0 0.157649211716 0"/>
     <axis xyz="0.0 1.0 0.0"/>
     <parent link="CHASSIS_SUB"/>
@@ -72,7 +80,7 @@
       </geometry>
     </collision>
   </link>
-  <joint name="CHASSIS_SUB--WHEEL_SUB-1" type="continuous">
+  <joint name="CHASSIS_SUB_WHEEL_SUB_1" type="continuous">
     <origin xyz="1.4605 3.175 0.635" rpy="0 0.731481857872 3.14159265359"/>
     <axis xyz="0.0 1.0 0.0"/>
     <parent link="CHASSIS_SUB"/>
@@ -101,7 +109,7 @@
       </geometry>
     </collision>
   </link>
-  <joint name="CHASSIS_SUB--WHEEL_SUB-3" type="continuous">
+  <joint name="CHASSIS_SUB_WHEEL_SUB_3" type="continuous">
     <origin xyz="1.4605 3.175 0.635" rpy="0 -1.30226592388 0"/>
     <axis xyz="0.0 -1.0 0.0"/>
     <parent link="CHASSIS_SUB"/>
@@ -130,15 +138,63 @@
       </geometry>
     </collision>
   </link>
-  <joint name="CHASSIS_SUB--WHEEL_SUB" type="continuous">
+  <joint name="CHASSIS_SUB_WHEEL_SUB" type="continuous">
     <origin xyz="10.9855 -3.175 0.635" rpy="3.14159265359 -0.773676769918 0"/>
     <axis xyz="0.0 -1.0 0.0"/>
     <parent link="CHASSIS_SUB"/>
     <child link="WHEEL_SUB"/>
     <dynamics damping="0.1"/>
   </joint>
+ <!--                GAZEBO RELATED PART                             -->
+ 
+  <!-- ROS Control plugin for Gazebo -->
   <gazebo>
-    <pose>0.0 0.0 0.0 0.0 0.0 0.0</pose>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/advr_mob_plt</robotNamespace>
+      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+      <legacyModeNS>true</legacyModeNS>
+    </plugin>
   </gazebo>
-</robot>
+ 
+  <!-- transmission -->
+  <transmission name="CHASSIS_SUB_WHEEL_SUB_2">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="motor2">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="CHASSIS_SUB_WHEEL_SUB_2">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
 
+  <transmission name="CHASSIS_SUB_WHEEL_SUB_1">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="motor1">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="CHASSIS_SUB_WHEEL_SUB_1">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+
+  <transmission name="CHASSIS_SUB_WHEEL_SUB_3">
+    <type>transmission_interface/_mpleTransmission</type>
+    <actuator name="motor3">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="CHASSIS_SUB_WHEEL_SUB_3">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+
+  <transmission name="CHASSIS_SUB_WHEEL_SUB">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="CHASSIS_SUB_WHEEL_SUB">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+
+</robot>

@@ -1,0 +1,25 @@
+<launch>
+
+  <!-- Load joint controller configurations from YAML file to parameter server -->
+  <rosparam file="$(find advr_mob_plt_control)/config/config.yaml" command="load"/>
+
+  <!-- load the controllers -->
+  <node name="controller_spawner"
+    pkg="controller_manager"
+    type="spawner" respawn="false"
+    output="screen" ns="/advr_mob_plt"
+    args="joint_state_controller
+      wheel_3_controller
+      wheel_2_controller
+      wheel_1_controller
+      wheel_controller"
+  />
+
+
+  <!-- convert joint states to TF transforms for rviz, etc -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">  
+    <param name="robot_description" textfile="$(find advr_mob_plt_description)/urdf/main.urdf" />
+    <remap from="/joint_states" to="/mybot/joint_states" />
+  </node>
+
+</launch>
