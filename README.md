@@ -31,3 +31,8 @@ or use `urdf_to_graphiz <urdf file>` for pdf containing the tree structure like 
 roslaunch advr_mob_plt_description advr_mob_plt_display.launch
 
 ```
+**For visualization in RViz**
+
+```
+roslaunch advr_mob_plt_gazebo advr_mob_plt_world.launch
+```
