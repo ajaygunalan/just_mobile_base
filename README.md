@@ -22,6 +22,9 @@ or use `urdf_to_graphiz <urdf file>` for pdf containing the tree structure like 
 
 * [Robotic simulation scenarios with Gazebo and ROS](https://www.generationrobots.com/blog/en/robotic-simulation-scenarios-with-gazebo-and-ros/)
 * [simmechanics-to-urdf](https://github.com/robotology/simmechanics-to-urdf)
+* [How to create launch file for URDF and open in Gazebo](https://www.theconstructsim.com/ros-qa-142-how-to-create-launch-file-for-urdf-and-open-in-gazebo/)
+* [Moving Joints in Gazebo Simple Example](https://www.theconstructsim.com/ros-qa-070-moving-joints-gazebo-simple-example/)
+* [Tutorial on creating a ROS-enabled mobile robot in Gazebo](https://github.com/HumaRobotics/mybot_gazebo_tutorial)
 
 ## To use this package
 
@@ -31,7 +34,7 @@ or use `urdf_to_graphiz <urdf file>` for pdf containing the tree structure like 
 roslaunch advr_mob_plt_description advr_mob_plt_display.launch
 
 ```
-**For visualization in RViz**
+**For visualization in Gazebo**
 
 ```
 roslaunch advr_mob_plt_gazebo advr_mob_plt_world.launch
