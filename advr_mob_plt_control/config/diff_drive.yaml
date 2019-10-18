@@ -1,0 +1,13 @@
+advr_diff_drive_ctrl:
+    type: "diff_drive_controller/DiffDriveController"
+    left_wheel: ['CHASSIS_SUB_WHEEL_SUB_3', 'CHASSIS_SUB_WHEEL_SUB_2']
+    right_wheel: ['CHASSIS_SUB_WHEEL_SUB_1', 'CHASSIS_SUB_WHEEL_SUB']
+    publish_rate: 50
+    pose_covariance_diagonal: [0.001, 0.001, 1000000.0, 1000000.0, 1000000.0, 1000.0]
+    twist_covariance_diagonal: [0.001, 0.001, 1000000.0, 1000000.0, 1000000.0, 1000.0]
+    cmd_vel_timeout: 0.25
+    wheel_separation: 10.16
+    wheel_radius: 1.5875
+
+    # Top level frame (link) of the robot description
+    base_frame_id: footprint

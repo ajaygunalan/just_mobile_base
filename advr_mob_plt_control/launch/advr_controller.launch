@@ -1,10 +1,12 @@
 <launch>
 
   <!-- Load joint controller configurations from YAML file to parameter server -->
-  <rosparam file="$(find advr_mob_plt_control)/config/config.yaml" command="load"/>
+ <rosparam file="$(find advr_mob_plt_control)/config/config.yaml" command="load"/>
+  <!-- Load differential drive controller configurations from YAML file to parameter server -->
+  <rosparam file="$(find advr_mob_plt_control)/config/diff_drive.yaml" command="load"/>
 
   <!-- load the controllers -->
-  <node name="controller_spawner"
+<!--   <node name="controller_spawner"
     pkg="controller_manager"
     type="spawner" respawn="false"
     output="screen" ns="/advr_mob_plt"
@@ -13,13 +15,23 @@
       wheel_2_controller
       wheel_1_controller
       wheel_controller"
-  />
+  /> -->
+
+  <!-- load the controllers -->
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" ns="/" output="screen"
+    args="advr_mob_plt_controller/joint_state_controller
+          advr_diff_drive_ctrl
+          --shutdown-timeout 3 "/>
 
 
   <!-- convert joint states to TF transforms for rviz, etc -->
-  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">  
+  <!-- <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">  
     <param name="robot_description" textfile="$(find advr_mob_plt_description)/urdf/main.urdf" />
     <remap from="/joint_states" to="/advr_mob_plt/joint_states" />
-  </node>
+  </node> -->
+
+<node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering">
+  <param name="default_topic" value="/Diff_Drive/diff_drive_controller/cmd_vel"/> 
+</node>
 
 </launch>

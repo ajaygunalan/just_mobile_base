@@ -150,11 +150,40 @@
   <!-- ROS Control plugin for Gazebo -->
   <gazebo>
     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-      <robotNamespace>/advr_mob_plt</robotNamespace>
+      <robotNamespace>/</robotNamespace> 
       <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
       <legacyModeNS>true</legacyModeNS>
     </plugin>
   </gazebo>
+ 
+<!-- <gazebo>
+  <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+
+    <rosDebugLevel>Debug</rosDebugLevel>
+    <publishWheelTF>false</publishWheelTF>
+    <robotNamespace>/</robotNamespace>
+    <publishTf>1</publishTf>
+    <publishWheelJointState>false</publishWheelJointSt>
+    
+    <alwaysOn>true</alwaysOn>
+    <updateRate>100.0</updateRate>
+    
+    <leftJoint>front_left_wheel_joint</leftJoint>
+    <rightJoint>front_right_wheel_joint</rightJoint>
+    
+    <wheelSeparation>10.16</wheelSeparation>
+    <wheelDiameter>3.175</wheelDiameter>
+    
+    <broadcastTF>1</broadcastTF>
+    <wheelTorque>30</wheelTorque>
+    <wheelAcceleration>1.8</wheelAcceleration>
+    <commandTopic>cmd_vel</commandTopic>
+    <odometryFrame>odom</odometryFrame>
+    <odometryTopic>odom</odometryTopic>
+    
+    <robotBaseFrame>footprint</robotBaseFrame>
+  </plugin>
+</gazebo> --> 
  
   <!-- transmission -->
   <transmission name="CHASSIS_SUB_WHEEL_SUB_2">
@@ -163,7 +192,7 @@
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
     <joint name="CHASSIS_SUB_WHEEL_SUB_2">
-      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <hardwareInterface>VelocityJointInterface</hardwareInterface>
     </joint>
   </transmission>
 
@@ -173,7 +202,7 @@
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
     <joint name="CHASSIS_SUB_WHEEL_SUB_1">
-      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <hardwareInterface>VelocityJointInterface</hardwareInterface>
     </joint>
   </transmission>
 
@@ -183,7 +212,7 @@
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
     <joint name="CHASSIS_SUB_WHEEL_SUB_3">
-      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <hardwareInterface>VelocityJointInterface</hardwareInterface>
     </joint>
   </transmission>
 
@@ -193,7 +222,7 @@
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
     <joint name="CHASSIS_SUB_WHEEL_SUB">
-      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <hardwareInterface>VelocityJointInterface</hardwareInterface>
     </joint>
   </transmission>
 

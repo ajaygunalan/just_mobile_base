@@ -4,8 +4,6 @@
 		<arg name="world_name" value="$(find advr_mob_plt_gazebo)/worlds/advr_mob_plt.world"/>
 		<arg name="gui" value="true"/>
 	</include>
-
-	<param name="robot_description" command="cat '$(find advr_mob_plt_description)/urdf/main.urdf'" />
     
     <node name="advr_gazebo_spawner_" pkg="gazebo_ros" type="spawn_model" output="screen"
           args="-urdf -param robot_description -model m2wr" />

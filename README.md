@@ -39,3 +39,9 @@ roslaunch advr_mob_plt_description advr_mob_plt_display.launch
 ```
 roslaunch advr_mob_plt_gazebo advr_mob_plt_world.launch
 ```
+
+**To launch Controllers**
+
+```
+roslaunch advr_mob_plt_control advr_controller.launch
+```
