@@ -1,4 +1,4 @@
-# A creo cad model is converted into a urdf and tested here.
+# A creo cad model is converted into a urdf and tested here using [this.](https://github.com/robotology/simmechanics-to-urdf)
 
 ## Important Notes
 
