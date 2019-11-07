@@ -2,7 +2,7 @@
 
 ## Important Notes
 
-1. Make sure that stl files are binary and not ASCII.
+1. Make sure that stl files are binary and not ASCII. If not, the convert using [this](https://github.com/cmpolis/convertSTL).
 2. Make sure that the location of stl files are correct and are properly specificed like [here](https://github.com/ajaygunalan/just_mobile_base/blob/master/advr_mob_plt_description/urdf/main.urdf).
 3. Make sure to have **MatLab Version** less than **2016** and generate **first generation XML files**
 4. Check the URDF by: `check_urdf <urdf file>` to get something like this:
