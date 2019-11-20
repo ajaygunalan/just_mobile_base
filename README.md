@@ -55,9 +55,9 @@ angular:
   y: 0.0
   z: 0.1"
 ```
-It should have moved but **it didn't work**. My guess is inertia parameters.
+It should have moved but **it didn't work**. My guess is inertia parametes are worng.
 
-Next is approach is to use gazebo_ros_control
+Next is approach is to use `gazebo_ros_control`
 
 **To launch Controllers**
 
