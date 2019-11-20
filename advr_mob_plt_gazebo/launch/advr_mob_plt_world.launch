@@ -1,10 +1,25 @@
 <launch>
+
+	 <arg name="world" default="empty"/> 
+  	<arg name="paused" default="false"/>
+  	<arg name="use_sim_time" default="true"/>
+  	<arg name="gui" default="true"/>
+  	<arg name="headless" default="false"/>
+  	<arg name="debug" default="false"/>
+
 	<!--Launches an empty gazebo world --> 
 	<include file="$(find gazebo_ros)/launch/empty_world.launch">
 		<arg name="world_name" value="$(find advr_mob_plt_gazebo)/worlds/advr_mob_plt.world"/>
-		<arg name="gui" value="true"/>
+    	<arg name="paused" value="$(arg paused)"/>
+    	<arg name="use_sim_time" value="$(arg use_sim_time)"/>
+    	<arg name="gui" value="$(arg gui)"/>
+    	<arg name="headless" value="$(arg headless)"/>
+    	<arg name="debug" value="$(arg debug)"/>
 	</include>
+
+	<param name="robot_description" command="cat '$(find advr_mob_plt_description)/urdf/main.urdf'" />
+
     
     <node name="advr_gazebo_spawner_" pkg="gazebo_ros" type="spawn_model" output="screen"
-          args="-urdf -param robot_description -model m2wr" />
+          args="-urdf -param robot_description -model advr" /> 
 </launch>

@@ -29,6 +29,7 @@
       </geometry>
     </collision>
   </link>
+
   <link name="WHEEL_SUB-2">
     <inertial>
       <origin xyz="-0.00404886860109 8.25423 -0.00255636148678" rpy="0 0 0"/>
@@ -51,6 +52,7 @@
       </geometry>
     </collision>
   </link>
+
   <joint name="CHASSIS_SUB_WHEEL_SUB_2" type="continuous">
     <origin xyz="10.9855 -3.175 0.635" rpy="0 0.157649211716 0"/>
     <axis xyz="0.0 1.0 0.0"/>
@@ -58,6 +60,7 @@
     <child link="WHEEL_SUB-2"/>
     <dynamics damping="0.1"/>
   </joint>
+
   <link name="WHEEL_SUB-1">
     <inertial>
       <origin xyz="-0.00406105508783 8.25423 -0.00255672281907" rpy="0 0 0"/>
@@ -80,6 +83,7 @@
       </geometry>
     </collision>
   </link>
+
   <joint name="CHASSIS_SUB_WHEEL_SUB_1" type="continuous">
     <origin xyz="1.4605 3.175 0.635" rpy="0 0.731481857872 3.14159265359"/>
     <axis xyz="0.0 1.0 0.0"/>
@@ -87,6 +91,7 @@
     <child link="WHEEL_SUB-1"/>
     <dynamics damping="0.1"/>
   </joint>
+
   <link name="WHEEL_SUB-3">
     <inertial>
       <origin xyz="-0.00406250026746 1.90423 -0.00255957175654" rpy="0 0 0"/>
@@ -109,6 +114,7 @@
       </geometry>
     </collision>
   </link>
+
   <joint name="CHASSIS_SUB_WHEEL_SUB_3" type="continuous">
     <origin xyz="1.4605 3.175 0.635" rpy="0 -1.30226592388 0"/>
     <axis xyz="0.0 -1.0 0.0"/>
@@ -116,6 +122,7 @@
     <child link="WHEEL_SUB-3"/>
     <dynamics damping="0.1"/>
   </joint>
+
   <link name="WHEEL_SUB">
     <inertial>
       <origin xyz="-0.00406718663107 1.90423 -0.00256243515197" rpy="0 0 0"/>
@@ -138,6 +145,7 @@
       </geometry>
     </collision>
   </link>
+  
   <joint name="CHASSIS_SUB_WHEEL_SUB" type="continuous">
     <origin xyz="10.9855 -3.175 0.635" rpy="3.14159265359 -0.773676769918 0"/>
     <axis xyz="0.0 -1.0 0.0"/>
@@ -184,8 +192,11 @@
     <robotBaseFrame>footprint</robotBaseFrame>
   </plugin>
 </gazebo> --> 
+
+  <!--
  
-  <!-- transmission -->
+    transmission 
+
   <transmission name="CHASSIS_SUB_WHEEL_SUB_2">
     <type>transmission_interface/SimpleTransmission</type>
     <actuator name="motor2">
@@ -225,5 +236,47 @@
       <hardwareInterface>VelocityJointInterface</hardwareInterface>
     </joint>
   </transmission>
+
+
+
+  <gazebo reference="CHASSIS">
+      <material>Gazebo/Orange</material>
+    </gazebo>
+
+  <gazebo reference="CHASSIS_SUB_WHEEL_SUB_2">
+      <mu1 value="1.0"/>
+      <mu2 value="1.0"/>
+      <kp  value="10000000.0" />
+      <kd  value="1.0" />
+      <fdir1 value="1 0 0"/>
+  </gazebo>
+
+  <gazebo reference="CHASSIS_SUB_WHEEL_SUB_1">
+      <mu1 value="1.0"/>
+      <mu2 value="1.0"/>
+      <kp  value="10000000.0" />
+      <kd  value="1.0" />
+      <fdir1 value="1 0 0"/>
+  </gazebo>
+
+  <gazebo reference="CHASSIS_SUB_WHEEL_SUB_3">
+      <mu1 value="1.0"/>
+      <mu2 value="1.0"/>
+      <kp  value="10000000.0" />
+      <kd  value="1.0" />
+      <fdir1 value="1 0 0"/>
+  </gazebo>
+
+  <gazebo reference="CHASSIS_SUB_WHEEL_SUB">
+      <mu1 value="1.0"/>
+      <mu2 value="1.0"/>
+      <kp  value="10000000.0" />
+      <kd  value="1.0" />
+      <fdir1 value="1 0 0"/>
+  </gazebo>
+
+  -->
+
+
 
 </robot>
