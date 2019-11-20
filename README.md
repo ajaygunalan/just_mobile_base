@@ -25,6 +25,8 @@ or use `urdf_to_graphiz <urdf file>` for pdf containing the tree structure like 
 * [How to create launch file for URDF and open in Gazebo](https://www.theconstructsim.com/ros-qa-142-how-to-create-launch-file-for-urdf-and-open-in-gazebo/)
 * [Moving Joints in Gazebo Simple Example](https://www.theconstructsim.com/ros-qa-070-moving-joints-gazebo-simple-example/)
 * [Tutorial on creating a ROS-enabled mobile robot in Gazebo](https://github.com/HumaRobotics/mybot_gazebo_tutorial)
+* [Tutorial: Using Gazebo plugins with ROS](http://gazebosim.org/tutorials?tut=ros_gzplugins)
+* [[Tutorial] Simulating Robot Models for ROS (part 1)](http://moorerobots.com/blog/post/1)
 
 ## To use this package
 
@@ -39,6 +41,23 @@ roslaunch advr_mob_plt_description advr_mob_plt_display.launch
 ```
 roslaunch advr_mob_plt_gazebo advr_mob_plt_world.launch
 ```
+
+Now, by using `skid steering` ([reference](http://moorerobots.com/blog/post/1)) 
+
+
+```
+rostopic pub /cmd_vel geometry_msgs/Twist "linear:
+  x: 0.2
+  y: 0.0
+  z: 0.0
+angular:
+  x: 0.0
+  y: 0.0
+  z: 0.1"
+```
+It should have moved but **it didn't work**. My guess is inertia parameters.
+
+Next is approach is to use gazebo_ros_control
 
 **To launch Controllers**
 

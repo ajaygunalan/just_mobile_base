@@ -155,7 +155,7 @@
   </joint>
  <!--                GAZEBO RELATED PART                             -->
  
-  <!-- ROS Control plugin for Gazebo -->
+  <!-- ROS Control plugin for Gazebo 
   <gazebo>
     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
       <robotNamespace>/</robotNamespace> 
@@ -163,35 +163,26 @@
       <legacyModeNS>true</legacyModeNS>
     </plugin>
   </gazebo>
+-->
  
-<!-- <gazebo>
-  <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
-
-    <rosDebugLevel>Debug</rosDebugLevel>
-    <publishWheelTF>false</publishWheelTF>
-    <robotNamespace>/</robotNamespace>
-    <publishTf>1</publishTf>
-    <publishWheelJointState>false</publishWheelJointSt>
-    
-    <alwaysOn>true</alwaysOn>
+<gazebo>
+  <plugin name="skid_steer_drive_controller" filename="libgazebo_ros_skid_steer_drive.so">
     <updateRate>100.0</updateRate>
-    
-    <leftJoint>front_left_wheel_joint</leftJoint>
-    <rightJoint>front_right_wheel_joint</rightJoint>
-    
+    <robotNamespace>/</robotNamespace>
+    <leftFrontJoint>CHASSIS_SUB_WHEEL_SUB_3</leftFrontJoint>
+    <rightFrontJoint>CHASSIS_SUB_WHEEL_SUB_1</rightFrontJoint>
+    <leftRearJoint>CHASSIS_SUB_WHEEL_SUB_2</leftRearJoint>
+    <rightRearJoint>CHASSIS_SUB_WHEEL_SUB</rightRearJoint>
     <wheelSeparation>10.16</wheelSeparation>
     <wheelDiameter>3.175</wheelDiameter>
-    
-    <broadcastTF>1</broadcastTF>
-    <wheelTorque>30</wheelTorque>
-    <wheelAcceleration>1.8</wheelAcceleration>
-    <commandTopic>cmd_vel</commandTopic>
-    <odometryFrame>odom</odometryFrame>
-    <odometryTopic>odom</odometryTopic>
-    
     <robotBaseFrame>footprint</robotBaseFrame>
+    <torque>200</torque>
+    <commandTopic>cmd_vel</commandTopic>
+    <odometryTopic>odom</odometryTopic>
+    <odometryFrame>odom</odometryFrame>
+    <broadcastTF>false</broadcastTF>
   </plugin>
-</gazebo> --> 
+</gazebo> 
 
   <!--
  
